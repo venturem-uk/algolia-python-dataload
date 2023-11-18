@@ -25,7 +25,7 @@ def load_json_file(file_path):
         logging.error(f"An error occurred: {e}")
 
 
-def upload_data_to_algolia(sampling:False):
+def upload_data_to_algolia(sampling=False):
     logging.info("Data Loader")
 
     # Define the algolia specific params
@@ -78,7 +78,7 @@ def main(args=None):
     logging.info("Main")
 
     # Pass true to load only first 100 records - default is False(full data load)
-    upload_data_to_algolia(True)
+    upload_data_to_algolia()
     
 
 if __name__ == "__main__":
