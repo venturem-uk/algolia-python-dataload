@@ -3,6 +3,16 @@ from datetime import date, datetime, timedelta
 import json
 from algoliasearch.search_client import SearchClient
 
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from file
+load_dotenv(".envvars")
+
+# Access variables
+algolia_user_id = os.getenv("algolia_user_id")
+algolia_user_key = os.getenv("algolia_user_key")
+
 
 TIMESTAMP = datetime.now().strftime('%Y%m%d_%H%M%S')
 
@@ -29,8 +39,6 @@ def upload_data_to_algolia(sampling=False):
     logging.info("Data Loader")
 
     # Define the algolia specific params
-    algolia_user_id = "S4KTODFFQS"
-    algolia_user_key = "335795b3c9211c913f13983449a33a0f"
     algolia_index_name = "ecom_index"
     query = "*"
 
